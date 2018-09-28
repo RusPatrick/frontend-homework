@@ -38,3 +38,11 @@ QUnit.module('Тестируем функцию roman', function () {
 		assert.strictEqual(roman('2017'), 'MMXVII');
 	});
 });
+
+QUnit.module('Тестируем функцию roman', function () {
+	QUnit.test('roman правильно обрабатывает неверные значения', function (assert) {
+		assert.throws(() => (roman('-15'), "Invalid number. Enter a number from 0 to 4999"));
+		assert.throws(() => (roman('5000'), "Invalid number. Enter a number from 0 to 4999"));
+		assert.strictEqual(roman('15xv'), 'XV');
+	});
+});
